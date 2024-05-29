@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lnag="ko">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>기본문법</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <h1>첫번째 제목</h1>    
+    <p> 즐거운 웹 프로그래밍 입문</p> <!-- 문장 -->
+
+    <div> <!-- 영역 개념의 GROUPING 개념, 화면상의 변화 x -->
+        <h1 title="header">두번쨰 제목</h1> <!-- title="header"는 h1의 속성-->
+        <p>즐거우신가요?</p>
+        <img src="./choonsik.jpg" width="500" height="300"> <!-- 이미지 태그-->
+    </div>
+
+    <p><b>Lorem</b> <em>ipsum</em> dolor sit <strong>amet</strong> consectetur adipisicing elit.<br>Ut, <mark>exercitationem dolorem dolore vel numquam asperiores,</mark> ducimus <u>sapiente</u> quas corporis <strike>odio illum nostrum itaque omnis.</strike> Perferendis eos <small>magnam</small> v<sub>oluptates</sub> c<sup>umque</sup> odio!</p>
+    <p> &lt; &gt; &amp; &copy;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&plusmn;</p> 
+    <!-- &__ : 특수문자 --, &nbsp: 한칸 공백(=스페이스바)-->
+
+    <hr> <!-- hr: 가로선 -->
+    
+    <!-- <a>태그: 마우스를 올렸을 때 밑줄이 쳐지며 설정된 링크 웹으로 들어가는 것-->
+        <!-- target 종류 _blank(새창), _self(현재페이지)-->
+    <a href="https://www.naver.com" target="_blank">네이버</a>
+    <a href="mailto:personar95@naver.com">메일 보내기</a>
+
+
+    <!-- 순번 없는 목록 <ul> 순번 있는 목록 <ol>-->
+    <div>
+        <ul>
+            <li>복숭아</li>
+            <li>사과</li>
+            <li>바나나</li>
+        </ul>
+    </div>
+
+    <ol>
+        <li>봄
+            <ul>
+                <li>봄청소</li>
+                <li>피크닉</li>
+            </ul>
+        </li>
+        <li>여름</li>
+        <li>가을</li>
+        <li>겨울</li>
+    </ol>
+
+    <!-- 테이블 -->
+    <table border="1">
+        <tr>
+            <td>1번셀</td>
+            <td>2번셀</td>
+            <td>3번셀</td>
+        </tr>
+        <tr>
+            <td>90</td>
+            <td>80</td>
+            <td colspan="2">95</td>
+        </tr>
+        <tr>
+            <td>95</td>
+            <td>100</td>
+            <td>95</td>
+        </tr>
+    </table>
+
+    <audio controls>
+        <source src="./sample.mp3">
+    </audio>
+    <br>
+    <video controls width="500">
+        <source src="./sample.mp4">
+    </video>
+    <br>
+    <embed type="video" src="./sample.mp4"widht="350" height="250">
+    <br>
+    <object type="application/pdf"
+        data="./sample.pdf"
+        width="250" height="380">
+        <br>
+</body>
+</html>
