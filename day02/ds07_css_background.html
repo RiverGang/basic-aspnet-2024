@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>CSS BACKgroundImage</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        /* 배경이미지 
+            작은 이미지여도 전체가 채워짐(default = repeat)*/
+        body {
+
+            background: antiquewhite url(./backtile.gif) repeat fixed top;
+            /* background-color: antiquewhite; -> 이미지영역 외 컬러로 채워짐
+                background-image: url(./backtile.gif);
+                background-repeat: no-repeat;
+                background-position: right;
+                background-attachment: fixed; */
+        }
+
+        /* xx-small ~ xx-large, px, &, em ...*/
+        p{
+            font-size: 15px;
+            font-family: NanumGothic;
+            font-style: italic;
+            font-weight: bold;
+            text-align: right;
+        }
+        
+        /* 평소에 하이퍼링크 언더바 표시가 없다가, 마우스가 해당 영역에 올라가면 언더바가 그어짐*/
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+
+        .test{
+            width: 300px; height: 200;
+            background: #ff0483;
+            background: linear-gradient(54deg,#ff0483 0%, #015e76 80%);
+            background: -webkit-linear-gradient(54deg,#ff0483 0%, #015e76 80%);
+            background: -moz-linear-gradient(54deg,#ff0483 0%, #015e76 80%);
+
+        }
+    </style>
+</head>
+<body>
+    <a href="https://www.naver.com">네이버</a>
+    <p>Lorem ipsum dolor sit amet 
+    동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세
+    </p>
+
+    <div class="test">
+    </div>
+</body>
+</html>

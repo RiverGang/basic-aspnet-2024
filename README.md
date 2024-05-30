@@ -99,9 +99,21 @@ IoT 개발자과정 ASP.NET  리포지토리
 
 ## 2일차
 - HTML5
-    - 시맨틱 태그
+    - 시맨틱 웹: 시맨틱 태그로 화면 구조를 잡는 웹구성 방식
+        - header, nav, footer, aside, section, article... 태그 사용
 
 - CSS3
-    - 웹 디자인 핵심
+    - 웹 디자인 핵심, Cascading Style Sheets
+        - 상단(<body>에서 부터)부터 하위 택들에 계속해서 적용되는 스타일이라는 뜻
+        - 선택자에게 주어지는 디자인 속성
+        - 선택자(selector)
+
+    - 반응형 웹(Resopnsive Web)
+        - 메타태그 viewport를 사용하면 그때부터 반응형 웹이 됨
+
+    - CSS 디자인 도움 웹사이트
+        - (http://css3generator.com/)
+        - (https://cssgenerator.org/)
+
 
 - Javascript
