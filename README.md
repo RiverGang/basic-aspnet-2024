@@ -131,10 +131,19 @@ IoT 개발자과정 ASP.NET  리포지토리
     - 특징
         - 인터프리터 언어(not Compile Lang)
         - 속도가 컴파일 언어에 비해서 느림.
-        - VS Code도 자바스크립트로 만든 앱
+        - [중요!] HTML 태그와 연계(DOM)
         - 확장자 .js
+            - VS Code도 자바스크립트로 만든 앱
         
         - 자료형 선언이 없음. var 변수 선언
+        - let(일반/전역변수), var(지역변수), const(상수) 
+        - 정수와 실수 구분 x
+            - 0으로 나눠도 예외가 발생하지 않음
+        - '(홑따옴표)와 "(쌍따옴표) 모두 사용
         - 문장 끝 ; (세미콜론) 생략가능, but 최대한 쓸 것
-        
-        - [!기본키워드]()
+        - === : 완전히 동일함을 비교하는 연산자
+
+        - [!기본키워드](https://raw.githubusercontent.com/RiverGang/basic-aspnet-2024/main/images/js001.png)
+
+    
+    - **DOM**(Document Object Model)
