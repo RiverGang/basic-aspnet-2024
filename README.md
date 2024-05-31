@@ -110,10 +110,31 @@ IoT 개발자과정 ASP.NET  리포지토리
 
     - 반응형 웹(Resopnsive Web)
         - 메타태그 viewport를 사용하면 그때부터 반응형 웹이 됨
-
+        ```html
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        ```
+        - @media 태그: 디바이스 종류별로 CSS 따로 디자인가능
+    
     - CSS 디자인 도움 웹사이트
         - (http://css3generator.com/)
         - (https://cssgenerator.org/)
 
 
+## 3일차
 - Javascript
+    - 스크립트 언어, EMSScript
+    - 웹 브라우저 주로 사용
+    - 바닐라스크립트: 완벽하게 기본에 충실한 자바스크립트
+    - 기본적으로 클라이언트(웹 브라우저에서 프론트엔드에 표시) 베이스
+    - Node.js: 자바스크립트로 백엔드를 구현(파이썬과 유사)
+    
+    - 특징
+        - 인터프리터 언어(not Compile Lang)
+        - 속도가 컴파일 언어에 비해서 느림.
+        - VS Code도 자바스크립트로 만든 앱
+        - 확장자 .js
+        
+        - 자료형 선언이 없음. var 변수 선언
+        - 문장 끝 ; (세미콜론) 생략가능, but 최대한 쓸 것
+        
+        - [!기본키워드]()
