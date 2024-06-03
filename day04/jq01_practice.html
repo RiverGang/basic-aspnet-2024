@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>jQuery 응용</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- jQuery 링크 사용-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // javascript
+            var input1 = document.querySelectorAll('input')[0]; // 주민번호 입력창 앞자리
+            var input2 = document.querySelectorAll('input')[1]; // 주민번호 입력창 뒷자리
+
+            input1.onkeydown = function(){
+                if(input1.value.length >= 6){ // 주민번호 입력창 앞자리가 다 채워지면 뒷자리 입력창으로 포커스 변경
+                    input2.focus();
+                }
+            }
+
+            input2.onkeydown = function(event){
+                var event = event || window.event; // 현재의 이벤트(onkeydown)와 윈도우 이벤트를 같이 확인
+                if (event.keyCode == 8 && input2.value.length == 0){
+                    input1.focus(); // event의 키보드 입력이 backspace(keyCode==8)이면서 주민번호 뒷자리가 모두 지워지면 주민 번호 앞자리(input1)로 포커스 변경
+                }
+            }
+
+            input1.focus();
+
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <input type="text" maxlength="6">
+        <span>-</span>
+        <input type="text" maxlength="7"><br>
+        <input type="submit">
+    </form>
+</body>
+</html>

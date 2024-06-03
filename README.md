@@ -145,5 +145,55 @@ IoT 개발자과정 ASP.NET  리포지토리
 
         - [!기본키워드](https://raw.githubusercontent.com/RiverGang/basic-aspnet-2024/main/images/js001.png)
 
-    
     - **DOM**(Document Object Model)
+        - 실행 순서
+        - HTML에 있는 모든 요소를 제어할 수 있음
+        - html 애니메이션, 게임, 통신 모두 가능
+        - 이벤트 on- 으로 시작
+        - onload : 화면이 다 렌더링되면 그 다음 발생
+        - onfocus : 객체에 마우스를 클릭해서 포커스가 가면 발생
+        - onclick : 객체를 마우스로 클릭하면 발생
+        - ondbclick : 더블클릭
+        - onmousemove : 마우스를 이동하면 발생
+        - onmouseover : 객체 위에 마우스가 올라가면 발생
+        - onkeydown, onkeypress : 객체에서 키보드를 타이핑하면 발생
+    
+    - jQuery
+        - 자바스크립트 라이브러리
+        - js를 매우 편리하게 사용할 수 있도록 도와주는 서포트 라이브러리
+        - 순식간에 웹개발 업계를 장악
+        - 사용빈도가 줄고는 있지만 아직도 80% 웹사이트가 사용 중
+        - js 파일 다운로드 후 사용하거나
+        - CDN 링크를 사용하는방법(추천)
+
+## 4일차
+- HTML + CSS + js(jQuery) 응용
+    - jQuery 응용
+        - javascrpit와 jQuery를 혼용해도 상관없음
+        - jQuery로 코딩이 편할 때와 javascript가 편한 상황이 다름
+
+    - Bootstrap
+        - 오픈소스 CSS 프레임워크
+        - 트위터 블루프린트 -> 부트스트랩
+        - 전세계에서 가장 각광받는 프레임워크 중 하나
+        - CSS를 동작시키기 위해 Javascript도 포함
+        
+        - 사용법
+            - (1) 소스 다운로드 받아 사용 -> 제한된 네트워크 환경 (금융, 방산 등)
+            - (2) CDN 링크만 사용 -> 인터넷이 항상 연결된 네트워크 환경
+            - [!다운로드](https://getbootstrap.com/)
+
+        - 핵심
+            - **Bootstrap은 화면 사이즈를 12등분**
+                - 12를 넘어서면 디자인 깨짐 (bs02 참고)
+            -  containter 및에 마치 table처럼 div를 구별해서사용
+            - container > row > col div 태그 클래스 정의
+        - 부트스트랩 학습에 시간을 들이는게 아니라 찾아쓰는 것. Copyleft가 정석
+            - https://getbootstrap.com/docs/5.3/getting-started/introduction/ 참조
+            - https://getbootstrap.com/docs/5.3/examples/ 스니펫 활용 추천
+        - 무료 테마(템플릿)사이트 활용
+            - Start Bootstrap (https://startbootstrap.com/?showPro=false)
+
+        
+    - 웹페이지 클로닝
+        - 
