@@ -201,3 +201,6 @@ IoT 개발자과정 ASP.NET  리포지토리
 ## 5일차
 - HTML + CSS + js(jQuery) 응용
     - 핀터레스트 타입 + 부트스트랩 웹페이지 만들기 (완료)
+    
+    - https://github.com/RiverGang/basic-aspnet-2024/assets/122778656/16f20d6c-299a-41b8-8ddb-3c6f95ff1d2e
+
