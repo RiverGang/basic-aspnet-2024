@@ -216,4 +216,6 @@ IoT 개발자과정 ASP.NET  리포지토리
 
 
 ## 6일차
-- 개인 웹페이지 포트폴리오 제작
+- 개인 웹페이지 제작 연습
+
+- LunDev Responsive Image Slider WebPage
