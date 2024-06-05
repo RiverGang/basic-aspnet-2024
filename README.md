@@ -1,6 +1,36 @@
 # basic-aspnet-2024
 IoT 개발자과정 ASP.NET  리포지토리
 
+## 5일차
+- HTML + CSS + js(jQuery) 응용
+    - 핀터레스트 타입 + 부트스트랩 웹페이지 만들기 (완료)
+    
+    - https://github.com/RiverGang/basic-aspnet-2024/assets/122778656/16f20d6c-299a-41b8-8ddb-3c6f95ff1d2e
+
+
+    - Codehal 로그인 웹페이지 튜토리얼
+
+    <img src="https://raw.githubusercontent.com/RiverGang/basic-aspnet-2024/main/images/an0001.png" width="730" alt="Codehal 로그인창 따라하기">
+        
+
+    - Codehal 슬라이더 애니메이션 웹페이지 튜토리얼
+
+
+    https://github.com/RiverGang/basic-aspnet-2024/assets/122778656/ad33d039-47e2-45d5-997d-765a9b3903ff
+
+
+
+
+## 6일차
+- 개인 웹페이지 제작 연습
+
+- LunDev Responsive Image Slider WebPage
+
+
+    https://github.com/RiverGang/basic-aspnet-2024/assets/122778656/e721cabb-f09a-4c60-b194-a5f9749cb164
+
+
+
 ## 1일차
 - 웹기술 개요
     - 웹(Web) -> 요청과 응답 과정
@@ -198,24 +228,4 @@ IoT 개발자과정 ASP.NET  리포지토리
     - 웹페이지 클로닝
         - 핀터레스트 타입 웹페이즈 만들기
 
-## 5일차
-- HTML + CSS + js(jQuery) 응용
-    - 핀터레스트 타입 + 부트스트랩 웹페이지 만들기 (완료)
-    
-    - https://github.com/RiverGang/basic-aspnet-2024/assets/122778656/16f20d6c-299a-41b8-8ddb-3c6f95ff1d2e
 
-
-    - Codehal 로그인 웹페이지 튜토리얼
-
-    <img src="https://raw.githubusercontent.com/RiverGang/basic-aspnet-2024/main/images/an0001.png" width="730" alt="Codehal 로그인창 따라하기">
-        
-
-    - Codehal 슬라이더 애니메이션 웹페이지 튜토리얼
-    
-    https://github.com/RiverGang/basic-aspnet-2024/assets/122778656/ad33d039-47e2-45d5-997d-765a9b3903ff
-
-
-## 6일차
-- 개인 웹페이지 제작 연습
-
-- LunDev Responsive Image Slider WebPage
