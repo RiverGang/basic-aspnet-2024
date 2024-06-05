@@ -212,3 +212,5 @@ IoT 개발자과정 ASP.NET  리포지토리
         
     - Codehal 슬라이더 애니메이션 웹페이지 튜토리얼
     
+    https://github.com/RiverGang/basic-aspnet-2024/assets/122778656/ad33d039-47e2-45d5-997d-765a9b3903ff
+
