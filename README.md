@@ -209,8 +209,11 @@ IoT 개발자과정 ASP.NET  리포지토리
 
     <img src="https://raw.githubusercontent.com/RiverGang/basic-aspnet-2024/main/images/an0001.png" width="730" alt="Codehal 로그인창 따라하기">
         
-        
+
     - Codehal 슬라이더 애니메이션 웹페이지 튜토리얼
     
     https://github.com/RiverGang/basic-aspnet-2024/assets/122778656/ad33d039-47e2-45d5-997d-765a9b3903ff
 
+
+## 6일차
+- 개인 웹페이지 포트폴리오 제작
