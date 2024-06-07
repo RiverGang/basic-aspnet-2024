@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>parallax Website Tutorial</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap");
+        
+        *, *::before, *::after{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: "Poppins", sans-serif;
+            background-color: #333;
+        }
+
+        .logo{
+            width: 100px;
+        }
+
+        header{
+            position: absolute; /* absolute(절대적) ===> header 위치를 절대적으로 고정*/
+            z-index: 9999; /* 어떤한 요소가 겹쳐도 가장 상위 레이어가 되도록 인덱스값 */
+            padding: 0.9rem 0;
+            top: 0; left: 0; /* 상단에 위치 */
+            
+            width: 100%;
+            border-bottom:  1px solid rgba(255, 255,   255, 0.1);
+        }
+
+        header nav {
+            background-color: red;
+            max-width: 1400px; /* nav의 최대 넓이 1400px*/
+            margin: 0 auto; /* 상하의 여백은 주지않고(0), 웹페이지 사이즈가 커지면 nav의 양쪽 여백을 자동으로 동일하게(auto) */
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between; /* nav 태그 내의 요소들의 배치가 좌우 끝 정렬이 되도록 => 중앙 여백 동일하게 */
+            align-items: cneter;
+        }
+
+        header ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        header ul a{
+            text-decoration: none;
+            color: #fff;
+            padding: 0 1.5rem;
+            text-transform: uppercase; /* 대문자 */
+            font-weight: 300;
+            font-size: 0.83rem;
+        }
+
+        .search a{
+            font-size: 1.05rem;
+            padding: 0 3rem;
+        }
+
+        .hamburger {
+            padding-left: 1.5rem;
+        }
+
+        .hamburger a{
+            padding: 0;
+            width: 37px;
+            height: 37px;
+            display: flex;
+            border-radius: 50%;
+            background-color: rgb(115, 115, 115, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter:  blur(10px);
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .hamburger .bar{
+            position: relative;
+            width: 52%;
+            height: 1.3px;
+            background-color: #fff;
+            border-radius: 2px;
+        }
+
+        .hamburger .bar::before,
+        .hamburger .bar::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width:  60%;
+            height: 100%;
+            background-color: inherit;
+            border-radius: 2px;
+        }
+
+        .hamburger .bar::before{
+            top: -4.5px;
+        }
+
+        .hamburger .bar::after{
+            bottom: -4.5px;
+        }
+        
+        main {
+            position: relative;
+            background-color: #353;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden; 
+        }
+
+        .bg-img{
+            position: absolute;
+            width: 2800px;
+            top: calc(50% - 390px);
+            left: calc(50% + 10px);
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .fog-7{
+            position: absolute;
+            width: 1900px;
+            top: calc(50% - 100px);
+            left: calc(50% + 300px);
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        .mountain-10 {
+            position: absolute;
+            z-index: 3;
+            top: calc(50% + 69px);
+            width: 870px;
+            left: calc(50% + 230px);
+            transform: translate(-50%, -50%);
+        }
+
+        .fog-2 {
+            position: absolute;
+            z-index: 4;
+            top: calc(50% + 95px);
+            left: calc(50% + 7px);
+            width: 1833px;
+            transform: translate(-50%, -50%);
+        }
+
+        .mountain-9 {
+            position: absolute;
+            z-index: 5;
+            top: calc(50% + 119px);
+            width: 463px;
+            left: calc(50% - 457px);
+            transform: translate(-50%, -50%);
+        }
+        .mountain-8 {
+            position: absolute;
+            z-index: 6;
+            top: calc(50% + 96px);
+            width: 786px;
+            left: calc(50% - 202px);
+            transform: translate(-50%, -50%);
+        }
+
+        .fog-3 {
+            position: absolute;
+            z-index: 7;
+            top: calc(50% + 171px);
+            left: calc(50% + 29px);
+            width: 449px;
+            transform: translate(-50%, -50%);
+        }
+
+        .mountain-7 {
+            position: absolute;
+            z-index: 8;
+            width: 538px;
+            top: calc(50% + 123px);
+            left: calc(50% + 305px);
+            transform: translate(-50%, -50%);
+        }
+
+        .mountain-6 {
+            position: absolute;
+            z-index: 10;
+            top: calc(50% + 86.5px);
+            width: 383.5px;
+            left: calc(50% + 590px);
+            transform: translate(-50%, -50%);
+        }
+
+        .fog-4 {
+            position: absolute;
+            z-index: 11;
+            top: calc(50% + 242px);
+            left: calc(50% - 64px);
+            width: 543px;
+            transform: translate(-50%, -50%);
+        }
+
+        .mountain-5 {
+            position: absolute;
+            z-index: 12;
+            top: calc(50% + 269px);
+            width: 583px;
+            left: calc(50% + 130px);
+            transform: translate(-50%, -50%);
+        }
+
+        .fog-5 {
+            position: absolute;
+            z-index: 13;
+            top: calc(50% + 149px);
+            left: calc(50% - 28px);
+            width: 1435px;
+            transform: translate(-50%, -50%);
+        }
+
+        .mountain-4 {
+            position: absolute;
+            z-index: 14;
+            top: calc(50% + 221px);
+            width: 717px;
+            left: calc(50% - 381.5px);
+            transform: translate(-50%, -50%);
+        }
+
+        .mountain-3 {
+            position: absolute;
+            z-index: 15;
+            top: calc(50% + 133px);
+            left: calc(50% + 736px);
+            width: 419px;
+            transform: translate(-50%, -50%);
+        }
+
+        .fog-6 {
+            position: absolute;
+            z-index: 16;
+            top: calc(50% + 177px);
+            left: calc(50% - 300px);
+            width: 1418px;
+            transform: translate(-50%, -50%);
+        }
+
+        .mountain-2 {
+            position: absolute;
+            z-index: 17;
+            top: calc(50% + 188px);
+            left: calc(50% + 412px);
+            width: 625px;
+            transform: translate(-50%, -50%);
+        }
+
+        .mountain-1 {
+            position: absolute;
+            z-index: 18;
+            top: calc(50% + 100px);
+            left: calc(50% - 800px);
+            width: 450px;
+            transform: translate(-50%, -50%);
+        }
+
+        .text{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        /* 
+            21:35분 부터
+            https://www.youtube.com/watch?v=Yo3j_Dx4u7c
+        */
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="picture/logo.png" alt="Travelo" class="logo">
+            <ul>
+                <li>
+                    <a href="#">Login</a>
+                </li>
+                <li>
+                    <a href="#">Sign up</a>
+                </li>
+                <li class="search">
+                    <a href="#">
+                        <i class='bx bx-search'></i>
+                    </a>
+                </li>
+                <li class="hamburger">
+                    <a href="#">
+                        <div class="bar"></div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <img src="picture/background.png" class="parallax bg-img">
+        <img src="picture/fog_7.png" class="parallax fog-7">
+        <img src="picture/mountain_10.png" class="parallax mountain-10">
+        <img src="picture/fog_6.png" class="parallax fog-6">
+        <img src="picture/mountain_9.png" class="parallax mountain-9">
+        <img src="picture/mountain_8.png" class="parallax mountain-8">
+        <img src="picture/fog_5.png" class="parallax fog-5">
+        <img src="picture/mountain_7.png" class="parallax mountain-7">
+        <div class="text parallax">
+            <h2>China</h2>
+            <h1>Zhangjiajie</h1>
+        </div>
+        <img src="picture/mountain_6.png" class="parallax mountain-6">
+        <img src="picture/fog_4.png" class="parallax fog-4">
+        <img src="picture/mountain_5.png" class="parallax mountain-5">
+        <img src="picture/fog_3.png" class="parallax fog-3">
+        <img src="picture/mountain_4.png" class="parallax mountain-4">
+        <img src="picture/mountain_3.png" class="parallax mountain-3">
+        <img src="picture/fog_2.png" class="parallax fog-2">
+        <img src="picture/mountain_2.png" class="parallax mountain-2">
+        <img src="picture/mountain_1.png" class="parallax mountain-1">
+        <img src="picture/sun_rays.png" class="sun-rays">
+        <img src="picture/black_shadow.png" class="black-shadow">
+        <img src="picture/fog_1.png" class="parallax fog-1">
+    </main>
+    
+</body>
+</html>
