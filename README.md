@@ -229,3 +229,76 @@ IoT 개발자과정 ASP.NET  리포지토리
         - 핀터레스트 타입 웹페이즈 만들기
 
 
+## 9일차
+- ASP.NET
+    - 1990년대 MS가 웹 서버기술로 ASP(Active Server Page) 배포 (Like Jav aServer Page)
+    - ASP는 .NET으로 된 언어가 아닌, VBScript를 사용
+    - 확장자 .asp
+    - 개발 난이도가 쉬워 많이 사용
+    - 스파게티 코드
+        - HTML + CSS + VBsript
+        - 유지보수가 어렵고 성능이 나쁨
+
+    - 2000년대 MS에서 .NET Framework 발표
+    - C#, VB.NET C++.NET 등의 새로운 언어를 배포하며 여기에 맞춘 웹 서버 기술을 다시 만듦 => ASP.NET
+    - 장점: 윈폼 개발하는 것 처럼 웹개발 가능
+    - 초창기: 스파게티 코드 거의 그대로 사용. 좋지 않은 성능
+
+    - 2009년 ASP.NET MVC(Model View Controller 디자인패턴)공표 -> 성능 상승
+    - But, 윈도우에서만 동작
+
+    - 2016년 .NET Core 출시
+        - 모든 플랫폼 동작
+        - 여기에 웹 서버기술을 또 다시 제작 -> ASP.NET Core
+
+    
+    - .NET Core(현재는 .NET 9.0, Core라는 이름은 사용안함)의 장점
+        - 빠름, 오픈소스
+        - 크로스 플랫폼, OS 종속 X
+        - 성능
+
+    - ASP.NET 종류
+        - Js(Vue, Angular, React) 프론트엔드 +  ASP.NET Core 백엔드
+        - ASP. NET Core 웹 API: 데이터포털, 네이버, 카카오, 영화API 사이트를 만드는 백엔드
+        - ASP.NET Core 웹앱(MVC): 가장 기본적인 프론트엔드(HTML,CSS,JS .html) + 백엔드(C# .aspx.cs) 웹개발
+        - ASP.NET Core gRPC 서비스: 고성능 원격프로시저호출(스트리밍 호출) 서비스
+        - Blazor: JS 프론트엔드를 따라서 C# 컴포넌트 기반으로 개발하는 웹개발 방식 웹사이트 개발
+        - Razor: 프론트엔드 개발에 C# 코드가 특화되서 사용되는 웹사이트 개발방식
+        - .NET Aspire: Blazor
+
+    - 참조사이트
+        -
+        -
+        -
+        -
+
+    - ASP.NET Core 웹앱(Model-View-Controller)
+        - 현재 웹개발의 가장 표준
+        - Java 계열도 Spring (Boot) MVC로 개발
+        - MVC 개념도
+
+
+        - 프론트엔드가 과거엔 스파게티 코드가 심했음
+        - 현재는 스파게티코드 최소화 (SpringBoot, Python flask 등 모두 동일)
+        - IIS Experss Server: VS에서 ASP.NET 웹사이트를 운영하는 개발용 웹서버
+        - index: 웹사이트에서 가장 대표되는 페이지 이름
+        - 파일 저장시 핫다시로드(HotReload) 체크
+
+    
+    - 데이터베이스 연동방법
+        - DB first: 가장 전통적인 DB 연동방식. DB설계, DB구축, C#과 연동
+        - Code first: 최근 트렌드. C# 엔티티 클래스 작성, DB 연결 설정 후 실행하면 DB에 테이블 생성
+        - EntityFramwork를 사용 시 손쉽게 구축가능
+
+
+    - EntityFramework(Core) 설치
+        - Microsoft.EntityFramewrokCore
+        - Microsoft.EntityFramewrokCore.Tools
+        - Microsoft.EntityFramewrokCore. 
+
+    - Code first 구현순서
+        - ASP.NET 프로젝트 생성
+        - EF 패키지 설치
+        - 엔티티 클래스 작성
+        - appsettings.json에 DB연결문자열 추가
+        - Data/ApplicationDBContext.cs 중간연결 클래스 생성

@@ -1,0 +1,20 @@
+﻿using Microsoft.Identity.Client;
+using System.ComponentModel.DataAnnotations;
+using System.Data;
+
+namespace BasicDbHanding.Models
+{
+    /// <summary>
+    /// DB에 테이블로 만들어지는 엔티티 클래스
+    /// </summary>
+    
+    public class Category
+    {
+        [Key]
+        public int Id { get; set; } // PK
+        [Required] // Not NULL
+        public string Name { get; set; }
+        public int DisplayOrder {  get; set; }
+        public DateTime PostDate { get; set; } = DateTime.Now; // 기본적으로 생성되는 현재날짜
+    }
+}
