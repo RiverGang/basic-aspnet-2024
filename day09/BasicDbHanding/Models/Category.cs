@@ -10,8 +10,10 @@ namespace BasicDbHanding.Models
     
     public class Category
     {
-        [Key]
-        public int Id { get; set; } // PK
+        [Key] // PK
+        public int Id { get; set; } 
+
+
         [Required] // Not NULL
         public string Name { get; set; }
         public int DisplayOrder {  get; set; }

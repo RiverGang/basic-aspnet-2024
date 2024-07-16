@@ -10,7 +10,7 @@ namespace BasicDbHanding.Data
             // 내용 없음
         }
 
-        // CodeFirst로 만들어둔 엔티티클래스를 작성
-        public DbSet<Category> Categories { get; set; }
+        // CodeFirst로 만들어둔 엔티티클래스를 작성, 테이블 생성할 엔티티가 늘때 마다 여기에 추가
+        public DbSet<Category> Categories { get; set; } // DB의 테이블로 만들거야 라는 뜻
     }
 }

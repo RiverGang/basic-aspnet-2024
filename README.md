@@ -229,7 +229,7 @@ IoT 개발자과정 ASP.NET  리포지토리
         - 핀터레스트 타입 웹페이즈 만들기
 
 
-## 9일차
+## 8일차
 - ASP.NET
     - 1990년대 MS가 웹 서버기술로 ASP(Active Server Page) 배포 (Like Jav aServer Page)
     - ASP는 .NET으로 된 언어가 아닌, VBScript를 사용
@@ -239,28 +239,29 @@ IoT 개발자과정 ASP.NET  리포지토리
         - HTML + CSS + VBsript
         - 유지보수가 어렵고 성능이 나쁨
 
+    - 웹퍼블리셔: HTML, CSS, Javascript만 가지고 웹페이지 개발
+    - 프론트엔드 개발자: 웹퍼블리셔가 만든 웹페이지에 백엔드와 연계를 해서 실제 동작하는 페이지 개발
+
     - 2000년대 MS에서 .NET Framework 발표
     - C#, VB.NET C++.NET 등의 새로운 언어를 배포하며 여기에 맞춘 웹 서버 기술을 다시 만듦 => ASP.NET
     - 장점: 윈폼 개발하는 것 처럼 웹개발 가능
     - 초창기: 스파게티 코드 거의 그대로 사용. 좋지 않은 성능
-
     - 2009년 ASP.NET MVC(Model View Controller 디자인패턴)공표 -> 성능 상승
     - But, 윈도우에서만 동작
 
     - 2016년 .NET Core 출시
         - 모든 플랫폼 동작
         - 여기에 웹 서버기술을 또 다시 제작 -> ASP.NET Core
-
-    
+        - ASP.NET은 C#이 아닌 다른 .NET 언어로도 개발 가능. 그 중에서 C#을 사용
     - .NET Core(현재는 .NET 9.0, Core라는 이름은 사용안함)의 장점
         - 빠름, 오픈소스
-        - 크로스 플랫폼, OS 종속 X
+        - **크로스 플랫폼**, OS 종속 X
         - 성능
 
     - ASP.NET 종류
         - Js(Vue, Angular, React) 프론트엔드 +  ASP.NET Core 백엔드
-        - ASP. NET Core 웹 API: 데이터포털, 네이버, 카카오, 영화API 사이트를 만드는 백엔드
-        - ASP.NET Core 웹앱(MVC): 가장 기본적인 프론트엔드(HTML,CSS,JS .html) + 백엔드(C# .aspx.cs) 웹개발
+        - **ASP.NET Core 웹앱(MVC): 가장 기본적인 프론트엔드(HTML,CSS,JS .html) + 백엔드(C# .aspx.cs) 웹개발**
+        - **ASP. NET Core 웹 API: 데이터포털, 네이버, 카카오, 영화API 사이트를 만드는 백엔드**
         - ASP.NET Core gRPC 서비스: 고성능 원격프로시저호출(스트리밍 호출) 서비스
         - Blazor: JS 프론트엔드를 따라서 C# 컴포넌트 기반으로 개발하는 웹개발 방식 웹사이트 개발
         - Razor: 프론트엔드 개발에 C# 코드가 특화되서 사용되는 웹사이트 개발방식
@@ -281,15 +282,15 @@ IoT 개발자과정 ASP.NET  리포지토리
         - 프론트엔드가 과거엔 스파게티 코드가 심했음
         - 현재는 스파게티코드 최소화 (SpringBoot, Python flask 등 모두 동일)
         - IIS Experss Server: VS에서 ASP.NET 웹사이트를 운영하는 개발용 웹서버
-        - index: 웹사이트에서 가장 대표되는 페이지 이름
+        - index.*: 웹사이트에서 가장 대표되는 페이지 이름
         - 파일 저장시 핫다시로드(HotReload) 체크
+        - @로 시작하는 C#ㄱ문. Tag heler, HTML helper로 HTML구문 내에
 
     
     - 데이터베이스 연동방법
         - DB first: 가장 전통적인 DB 연동방식. DB설계, DB구축, C#과 연동
         - Code first: 최근 트렌드. C# 엔티티 클래스 작성, DB 연결 설정 후 실행하면 DB에 테이블 생성
         - EntityFramwork를 사용 시 손쉽게 구축가능
-
 
     - EntityFramework(Core) 설치
         - Microsoft.EntityFramewrokCore
@@ -302,3 +303,67 @@ IoT 개발자과정 ASP.NET  리포지토리
         - 엔티티 클래스 작성
         - appsettings.json에 DB연결문자열 추가
         - Data/ApplicationDBContext.cs 중간연결 클래스 생성
+
+    - 브라우저 실행 시 NET::ERR_CERT_INVALID 연결 비공개 설정이 안되 화면이 안나타는 경우
+        - 브라우저 화면 클릭, thisisunsafe 입력
+
+## 9일차 (07.16)
+- ASP.NET Core MVC
+    -  MVC
+        - Model은 개발자가 따로 만듦
+        - View, Controller 폴더는 미리 만들어짐
+        - 웹브라우저에서 접근할 페이지를 만들려면
+            1. 해당 컨트롤러를 생성
+            2. 뷰를 같이 생성할지 나중에 따라 만들지 선택
+            3. 컨트롤러 이름과 동일한 뷰 폴더, 메서드 이름과 동일한 cshtml 페이지가 생성
+            4. 컨트롤에 모델에 DB와 연결될 내용을 작성
+            5. 모델 내용을 뷰로 리턴
+
+- ASP.NET Core 포트폴리오 웹사이트, Myfortfolio
+    1. Visual Studio에서 ASP.NET Core 웹앱(MVC) 프로젝트 생성
+    2. 부트스트랩 템플릿 사이트에서 알맞은 템플릿을 다운로드
+    3. wwwroot 폴더 아래 템플릿 html,css,js 이미지 등 위치
+    4. 템플릿 페이지에 공통적인 부분(Header, Bottom)은 __layout.cshtml 에 위치
+    5. 중간에 페이지마다 변경되는 부분은 각 Views 밑에 포함
+    6. _layout.cshtml에 (View 아래 Shard 폴더 속) 공통부분 옮기기
+    7. index.cshtml에 index.html에서 공통부분 외 영역 옮기기
+    8. index.cshtml 내용 수정
+
+    9. ResumeControlloer.cs 생성, 뷰를 같이 생성 (페이지 만들기)
+        - DB 관련된 설정이 없으면, 모델과 뷰를 만들기 어려움 -> 직접 작업해야함('MVC 컨트롤러 비어있음'을 추가)
+        - Controllers 폴더에 ResumeController.cs 생성 -> 이후 Views 폴더 아래 Resume 폴더 추가 -> Resume 폴더에 index.cshtml (= 뷰) 추가
+        - resume.html (템플리소스)에서 네비게이션 아래 변경부분만 복사해 Resume의 index.cshtml에 내용 붙여넣기
+
+    10. Code First 방식으로 Board테이블(DB) 생성
+        - NuGet 패키지 검색 및 설치(필수)
+            - Microsoft.EntityFrameworkCore
+            - Microsoft.EntityFrameworkCore.Tools
+            - Microsoft.EntityFrameworkCore.SqlServer
+
+        - model/Boadr.cs로 엔티티 클래스 생성
+        - appsettings.json에 DB 연결문자열 추가
+        - Data 폴더 생성, AppDbcontext.cs 클래스 추가, DbContext 상속받기
+        - Program.cs 위치에 DbContext 종속성 주입
+            ```csharp
+            // DbContext 종속성 주입
+            builder.Services.AddDbContext<AppDbContext>(option => option.UseSqlServer(
+            builder.Configuration.GetConnectionString("MyConnection") // appsettings.json에서 정의한 이름
+            )); 
+            ```
+
+        - NuGet패키지 관리자 콘솔 > Add-Migration, Update-Database진행 (이 과정을 해줘야 mssql 데이터서버에 테이블이 생성됨)
+        - _layout.cshtml Board 링크 수정
+        - /Controller/BoardController.cs를 생성(모델, 뷰 연결)
+            - Entity Framework를 사용하며 뷰가 포함된 MVC 컨트롤러
+
+            <img src="https://raw.githubusercontent.com/RiverGang/basic-aspnet-2024/main/images/an0004.png" width="500">
+
+
+## 10일차
+- ASP.NET Core 포트폴리오 웹사이트, Myfortfolio
+    1. Board.cs 멤버속성 ModeDate -> ModDate
+    2. 테이블 삭제, 재생성
+    3. 게시판 관련된 화면 수정작업
+    4. 페이징 작업
+    5. 회원가입, 로그인
+    6. 관리자모드/페이지
