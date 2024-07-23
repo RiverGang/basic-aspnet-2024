@@ -1,24 +1,37 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyPortfolio.Models
 {
     public class Board
     {
-        [Key] // PK
-        public int Id { get; set; } 
+        [Key]
+        public int Id { get; set; }   // PK
 
-        [Required] // Not Null 속성
-        [MaxLength(20)] // NVARCHAR(20) 사이즈 지정
-        public string UserName { get; set; } // 작성자명
+        [Required(ErrorMessage="이름을 입력하세요.")]
+        [MaxLength(50)]     //NVARCHAR(50) 사이즈 지정하려면
+        [DisplayName("이름")]
+        public string Name { get; set; }    // 작성자 명
+        [Required(ErrorMessage = "아이디를 입력하세요.")]
+        [DisplayName("아이디")]
         [MaxLength(20)]
-        public string UserId { get; set; } //작성자아이디
+        public string UserId { get; set; }  // 작성자 아이디
+        [Required(ErrorMessage = "제목을 입력하세요.")]
+        [DisplayName("제목")]
+        [MaxLength(250)]
+        public string Title { get; set; }   // 게시글 제목
+        [Required(ErrorMessage = "내용을 입력하세요.")]
+        [DisplayName("내용")]
+        public string Contents { get; set; } // 게시글 내용
+        [DisplayName("조회수")]
 
-        [Required]
-        [MaxLength(50)]
-        public string Title { get; set; } //게시글 제목
-        public string Contents { get; set; } //게시글 내용
-        public int  Hit {  get; set; } //게시글 조회수
-        public DateTime RegDate { get; set; } = DateTime.Now;// 게시글 작성일자
-        public DateTime ModeDate { get; set; } // 게시글 최종 수정일자
+        public int Hit {  get; set; }   // 읽은 횟수
+        [DisplayName("작성일")]
+
+        public DateTime RegDate { get; set; }  // 게시글 작성날짜
+
+        [DisplayName("수정일")]
+        public DateTime? ModDate { get; set; }  //게시글 최종 수정 일자
+        // Class 뒤에 ? => Nullavaileable (널 가능)
     }
 }

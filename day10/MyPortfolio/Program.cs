@@ -1,5 +1,7 @@
+using Microsoft.CodeAnalysis.Options;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.Data;
+using Westwind.AspNetCore.Markdown; // 마크다운 패키지 추가
 
 namespace MyPortfolio
 {
@@ -11,12 +13,14 @@ namespace MyPortfolio
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            //Dbcontext 종속성 주입
+            builder.Services.AddDbContext<AppDbContext>(Option => Option.UseSqlServer(
+                builder.Configuration.GetConnectionString("Myconnection")));
 
-            // DbContext 종속성 주입
-            builder.Services.AddDbContext<AppDbContext>(option => option.UseSqlServer( // <> 내부 내용 -> Data 폴더에서 정의한 클래스
-                builder.Configuration.GetConnectionString("MyConnection") // appsettings.json에서 정의한 이름
-                ));
-
+            // MarkDown 관련 설정
+            builder.Services.AddMarkdown();
+            builder.Services.AddMvc().AddApplicationPart(typeof(MarkdownPageProcessorMiddleware).Assembly);
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -27,6 +31,7 @@ namespace MyPortfolio
                 app.UseHsts();
             }
 
+            app.UseMarkdown(); // 마크다운 사용설정
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -36,9 +41,8 @@ namespace MyPortfolio
 
             app.MapControllerRoute(
                 name: "default",
-                // URL패턴 : http://localhost:port/controller이름/action이름/[id](옵션)
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-
+                // URL패턴 : https://localhost:port/controller이름/action이름/{id}(옵션)
             app.Run();
         }
     }

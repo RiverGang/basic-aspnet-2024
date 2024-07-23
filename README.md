@@ -385,8 +385,69 @@ IoT 개발자과정 ASP.NET  리포지토리
         5. Models/Board.cs ModeDate를 DateTime -> DateTime? 변경 (널 입력 가능하도록)
         6. Edit 동일, Create.cshtml 내용을 그대로 복사/붙여넣기 단, asp-action="Edit"로 변경
     
+## 11일차
+- Postman 설치 APi 테스트 Tool
+- ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
+    0. EntityFramework로 SQL 사용없이 DB 핸들링
+        - DbContext.Add(삽입), Update(수정), Remove(삭제), 기능 존재
+        - 위의 명령을 실행 후 DbContext.SaveChangesAsync() 실행해서 실제 DB에 반영
+        - ToListAsync(), FirstOrDefaultAsync()는 SELECT로 트랜잭션이 발생하지 않음. 따라서 SaveChangesAsync()를 실행 X
+    1. [x]글 조회수 올리기 
+    2. [x]게시글 삭제
+        - _layout.cshtml의 @await RenderSectionAsync("Scripts", required: false) => 각 페이지에 필요시(=비동기) 스크립트영역을 만들어써라는 의미
+        - []AJAX 삭제는 나중에 다시 구현
+    3. **페이징**
+        - 웹사이트에서 가장 중요한 기능 중 하나
+        - 한 페이지에 표시할 수 있는 글의 수를 제한
+        - 스크롤 페이징/번호 페이징
+        
+        - 번호 페이징 구현
+            1. BoardControoler.cs Index() 액션메서드 내 FromSql()로 변경 (비동기 적용은 페이징이 어려움, 비동기 제거)
+            2. 페이징용 쿼리 작성
+            
+                ```sql
+                SELECT *
+                    FROM (
+                            SELECT ROW_NUMBER() OVER (ORDER BY Id DESC) AS rowNum
+                                , Id
+                                , Name
+                                , UserId
+                                , Title
+                                , Contents
+                                , Hit
+                                , RegDate
+                                , ModDate
+                            FROM Board
+                            ) AS base
+                    WHERE base.rowNum BETWEEN 1 AND 10 -- 1과 10에 각각 10을 더하면 다음 페이지를 조회하게 됨
+                ```
+            3. Index() 내 로직 수정
+            4. Views/Board/Index.cshtml 화면코드 수정
+            
+    4. 검색
+        - FromSQlRaw() 메서드 변경
+        - html 링크에 ?page=1&search 검색어 추가
+    
+    5. HTML에디터
+        -  Markdwon 에디터
+        - simplemde(https://simplemde.com)
+        - _layout.chstml에 js, css 링크만 추가
 
-    ## 11일차
-    1. 페이징!!
-    2. 회원가입, 로그인 ...
-    3. 관리자모드/페이지
+            ```html
+            <!-- SimpleMDE css -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+
+            <!-- SimpleMDE js CDN -->
+            <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+            ```
+        - 실제 사용페이지에서 특정 js만 실행
+        - Create.cshtml, Edit.cshtml은 동일하게 작업
+        - NuGet패키지 Westwind.AspNetCore.Markdown 검색
+
+        
+
+## 12일차
+- ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
+    0. 삭제로직 수정
+    1. 회원가입, 로그인...
+    2. 관리자모드/페이지
