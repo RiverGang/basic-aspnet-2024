@@ -25,7 +25,7 @@ namespace MyPortfolio.Models
         public string Contents { get; set; } // 게시글 내용
         [DisplayName("조회수")]
 
-        public int Hit {  get; set; }   // 읽은 횟수
+        public int? Hit {  get; set; }   // 읽은 횟수
         [DisplayName("작성일")]
 
         public DateTime RegDate { get; set; }  // 게시글 작성날짜
@@ -33,5 +33,8 @@ namespace MyPortfolio.Models
         [DisplayName("수정일")]
         public DateTime? ModDate { get; set; }  //게시글 최종 수정 일자
         // Class 뒤에 ? => Nullavaileable (널 가능)
+
+        // RelationShip 부모User->자식Board
+        public virtual User User { get; set; }
     }
 }

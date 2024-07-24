@@ -450,5 +450,7 @@ IoT 개발자과정 ASP.NET  리포지토리
 ## 12일차
 - ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
     1. 삭제로직 수정
-    2. 회원가입, 로그인...
+    2. 회원가입, 로그인, 권한 ...
+        12. HomeController.cs에 Register() 액션메서드 작성
+        13. Register.cshtml
     3. 관리자모드/페이지
