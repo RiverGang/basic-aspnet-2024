@@ -454,3 +454,19 @@ IoT 개발자과정 ASP.NET  리포지토리
         12. HomeController.cs에 Register() 액션메서드 작성
         13. Register.cshtml
     3. 관리자모드/페이지
+
+## 13일차
+- 
+    1. 
+    2. 게시판 글 오류 수정
+        1. Board.cs에 있는 Name, UserID를 삭제
+        2. BoardController.cs 있는 Board 클래스와 관련된 변수도 삭제
+        3. View/Board/*.cshtml Name, UserID를 삭제/변경
+        4. BoardController.
+    3. 프로젝트 파일 업로드
+        1. Project.cs 모델 생성
+        2. AppDbContext.cs에 DbSet<Project> 추가
+        3. Add-Migration, Update-Database
+        4. ProjectController, View 생성
+        5. Views/Project/Create.cshtml 수정
+        6. ProjectController, Create Post 메서드 수정
