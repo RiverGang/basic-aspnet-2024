@@ -451,13 +451,27 @@ IoT 개발자과정 ASP.NET  리포지토리
 - ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
     1. 삭제로직 수정
     2. 회원가입, 로그인, 권한 ...
-        12. HomeController.cs에 Register() 액션메서드 작성
-        13. Register.cshtml
-    3. 관리자모드/페이지
+        1. /Models/User.cs 클래스 생성
+        2. User클래스와 Board 클래스 간 관계형성 (virtual)
+        3. AppDbContext.cs에 User DBset 추가
+        4. Add-Migration, Update-Database 실행 -> DB 생성
+        5. Program.cs에 로그인 세션 설정
+        6. _layout.cshtml 로그인/로그아웃 메뉴 추가
+        7. HomeController.cs Login/Logout 액션메서드 작성
+        8. bootstrap 사이트에서 예제 파일 다운로드
+        9. sing-in 폴더 내 index.html, sign-in.css Static 경로(wwwroot) 복사
+        10. Login.cshtml을 위의 파일 참조해서 수정
+        11. HomeController.cs에 Register()액션메서드 작성
+        13. Register.cshtml 회원가입 페이지 생성
 
 ## 13일차
-- 
-    1. 
+- ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
+    1. 회원가입 이어서 ...
+        1. Register.cshtml에 asp-for등 C# Razor tag로 변경
+        2. HomeController.cs Register Post 메서드 작성
+        3. Login.cshtml에 C# Razor tag로 변경
+        4. HomeController.cs Login Post 메서드 작성
+        5. Logout Get메서드 추가
     2. 게시판 글 오류 수정
         1. Board.cs에 있는 Name, UserID를 삭제
         2. BoardController.cs 있는 Board 클래스와 관련된 변수도 삭제
@@ -470,3 +484,114 @@ IoT 개발자과정 ASP.NET  리포지토리
         4. ProjectController, View 생성
         5. Views/Project/Create.cshtml 수정
         6. ProjectController, Create Post 메서드 수정
+
+## 14일차
+- ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
+    1. AWS LightSail로 윈도우서버 인스턴스 만들기
+        1. 구글 ASW 라이트세일 검색
+        2. AWS 프리티어 회원가입
+        3. AWS 라이트세일 / 루트 사용자 로그인
+        4. 인스턴스 생성 (인스터스 위치(Region) 확인), ap-northeast-2a
+            - Linux/Unix는 라즈비안과 거의 동일
+            - MS Windows OS 전용 -> Windows Server 2016 선택
+            - Size -> 무료 중 가장 좋은 성능 선택
+            - 인스턴스 확인 이름(Identify your instance) 변경
+            - 인스턴스 생성 클릭
+        5. 인스턴스 관리
+            - 관리로 진입
+            - 네트워킹 탭 > 고정 IP 연결 클릭
+            - Connect 탭 > 자신의 고정 IP, Administrator, 비밀번호(Retrieve default password) 확인
+        6. 원격 데스크톱 연결
+            - Windows 검색창 -> 원격 데스크톱
+                - 주소: 고정 IP
+                - 사용자: Administrator
+                - 비밀번호: 비밀번호 입력 (기억 체크박스 True)
+            - 원격 데스크톱 연결 후 NetWork2 항목 Yes 클릭
+            - 원격 데스크톱에서 Server Manager 프로그램 열기
+                - Local Server 탭 > IE Enhanced Security Configuration > OFF로 변경
+                - 인터넷 익스플로러에서 크롬 브라우저 설치
+                - FileZilla 검색 및 Server 설치
+
+        7. 파일질라 서버 설정
+            - 메뉴 > Configure 클릭
+            - FTP and FTP over TLS(FTPS)의 Connection Security 탭 하단 Distinguished name 복사
+                - Generate New 클릭 >  Distinguished nmae에 붙여넣기 + Hostnames에도 입력
+                - Passive mode 탭 (Port 변경 기능)
+                    - 사용
+                    - From : 55000
+                    - To : 55999
+            - Users > 새로운 유저 생성
+                - Authentication > Require a password to log in
+                    - 비밀번호 입력 후 Apply
+                - Mount points
+                    - Virtual path : /
+                    - Native path : 본인 지정 (폴더 경로 넣기)
+        
+        8. 윈도우 방화벽 설정
+            - Control Panel(제어판) > Windows Firewall > Adanced Security
+
+        9. AWS 방화벽 설정
+        
+        11. 사용 PC에서 파일질라 클라이언트 설치
+            - 기본 설치
+            - 사이트 관리자
+                - 새 사이트 생성
+                - 호스트: AWS public ip 
+                - 사용자, 비번: Filezilla server 설정한 사용자 계정
+
+        12. Visual Studio ASP.NET Core 게시
+            - 프로젝트 > 마우스 우클릭 > 게시
+            - FTP/FTPS 서버 선택 > 다음
+                - 서버: aws public ip
+                - 사이트 경로: /
+                - 수동모드 True
+                - 사용자 이름 및 패스워드 입력, 암호저장 True
+                - 연결 유효성 검사 클릭 > 녹색체크가 뜨면 성공
+                - 게시
+        
+        13. SQL Server Developer 다운로드
+            - 윈도우 서버 패스워드 정책 변경
+                - 기본: 8문자 이상, 특수문자 1자 이상, 영어대소문자 ...
+                - 윈도우 + R키 -> secpol.msc
+                - Account Policies > Password Policy > Password must meet com~ > Disabled 
+
+
+            - Media 선택 > Default 값으로 다운로드 
+            - SQLServer2022-x64-ENU-Dev 마우스 우클릭 > Mount > setup
+            - Installation - New SQL Server standalon installation ... 클릭
+            - 윈도우 방화벽, AWS 방화벽 1433포트 오픈
+            - SSMS 접속 확인
+
+        14. IIS(Internet )
+            - 기본 선택
+            - Select server roles > Roles > Web Server (IIS) 선택 > 기본 설정들도 설치
+        
+        15. SQL Server 복제
+            - SSMS 로컬 DB 접속
+            - 서버 종료
+            - EMS.mdf, EMS_log.ldf 복사
+            - FTP로 서버에 전송
+            - 서버 컴퓨터에서 전송받은 파일 확인
+                - C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA 에 복제할 테이블파일 추가
+
+        16. IIS 서버에서 ASP.NET 실행
+            - 제어판 열기 > Administration Tools > Internet Information Services (IIS) Manager 열기
+                - Default Web > Basic Setting 사이트 경로 변경
+                - C:\Websitex\MyPorfolio
+                    - MyPortfolio 폴더 마우스 우클릭 > Propeties Security 탭 > Advanced > Add > Select a principal > Advanced > Find Now > IIS_IUSRS 추가
+
+            - 구글에서 ASP.NET 코어 Runtime 검색 후
+                - aspnetcore-runtime-8.0.7-win-x64 다운로드
+                - dotnet-hosting-8.0.7-win 다운로드
+            
+            - IIS > Application Pool
+                - ASPNETCore 애플리케이션 풀 생성
+                - .NET CLR version: No Managed Code 선택
+                - IIS 재시작
+
+        17. 다음부터는
+            - Visual Studio 개발
+            - Visual Studio 게시
+            - DB가 변경 되었으면, mdf, ldf를 FTP로 업로드
+            - SQL 서버 중지, 파일 이동, SQL 서버 재시작
+             
